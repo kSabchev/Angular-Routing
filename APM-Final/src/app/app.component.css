@@ -7,6 +7,18 @@
   color: #007ACC
 }
 
+.flex {
+  display: flex;
+}
+
+.flex_left {
+  flex:0.2;
+}
+
+.flex_right {
+  flex : 0.6;
+}
+
 /* Spinner */
 .spinner {
   font-size:300%;

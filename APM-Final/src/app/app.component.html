@@ -2,58 +2,59 @@
       *ngIf="loading"></span>
 
 <!-- Main part of the menu-->
-<nav class="navbar navbar-expand navbar-light bg-light">
-  <a class="navbar-brand">{{pageTitle}}</a>
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link"
+<div class="flex">
+<nav class="flex_left">
+  <a >{{pageTitle}}</a>
+  <ul >
+    <li >
+      <a
          [routerLink]="['/welcome']"
          routerLinkActive="active">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link"
+    <li >
+      <a
          [routerLink]="['/products']"
          routerLinkActive="active"
          [routerLinkActiveOptions]="{ exact : true}">Product List</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link"
+    <li >
+      <a
          [routerLink]="['/products', 0, 'edit']"
          routerLinkActive="active">Add Product</a>
     </li>
   </ul>
 
   <!-- Left justified part of the menu -->
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item"
+  <ul >
+    <li
         *ngIf="isLoggedIn">
-      <a class="nav-link"
+      <a
          [routerLink]="['/login']">Welcome {{ userName }}</a>
     </li>
-    <li class="nav-item"
+    <li
         *ngIf="!isMessageDisplayed">
-      <a class="nav-link"
+      <a
          (click)="displayMessages()">Show Messages</a>
     </li>
-    <li class="nav-item"
+    <li
         *ngIf="isMessageDisplayed">
-      <a class="nav-link"
+      <a
          (click)="hideMessages()">Hide Messages</a>
     </li>
-    <li class="nav-item"
+    <li
         *ngIf="!isLoggedIn">
-      <a class="nav-link"
+      <a
          [routerLink]="['/login']">Log In</a>
     </li>
-    <li class="nav-item"
+    <li
         *ngIf="isLoggedIn">
-      <a class="nav-link"
+      <a
          (click)="logOut()">Log Out</a>
     </li>
   </ul>
 </nav>
 
-<div class="container">
+<div class="container flex_right">
   <div class="row">
     <div class="col-md-10"
          [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''">
@@ -63,4 +64,6 @@
       <router-outlet name="popup"></router-outlet>
     </div>
   </div>
+</div>
+
 </div>
